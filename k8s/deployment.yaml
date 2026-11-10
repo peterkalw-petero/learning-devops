@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pipeline-gitops
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pipeline-gitops
+  template:
+    metadata:
+      labels:
+        app: pipeline-gitops
+    spec:
+      containers:
+        - name: web
+          image: ghcr.io/peterkalw-petero/hello-pipeline:latest
